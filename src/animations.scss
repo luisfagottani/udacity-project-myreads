@@ -1,0 +1,21 @@
+
+@mixin base-animation {
+	transition: all .4s ease-in-out
+}
+
+.fade {
+  &-enter {
+    @include base-animation();
+    opacity: 0;
+  }
+
+  &-enter-active {
+    @include base-animation();
+    opacity: 1;
+  }
+
+  &-exit {
+    @include base-animation();
+    opacity: 0;
+  }
+}
