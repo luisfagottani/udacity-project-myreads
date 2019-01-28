@@ -5,11 +5,14 @@
   "dependencies": {
     "form-serialize": "^0.7.2",
     "jest": "^23.6.0",
+    "node-sass": "^4.11.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
+    "react-debounce-input": "^3.2.0",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "react-transition-group": "^2.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
