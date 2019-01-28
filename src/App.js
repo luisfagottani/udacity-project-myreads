@@ -51,9 +51,7 @@ class BooksApp extends React.Component {
       book: books.slice()
     }));
 
-    BooksAPI.update(bookId, state).then(res => {
-      console.log(res);
-    });
+    this.updateBook(state, bookId);
   };
 
   /**
@@ -66,13 +64,16 @@ class BooksApp extends React.Component {
       books.push(res);
     });
 
-    BooksAPI.update(bookId, state).then(res => {
-      console.log(res);
-    });
-
+    this.updateBook(state, bookId);
     this.setState(() => ({
       books: books
     }));
+  };
+
+  updateBook = (state, bookId) => {
+    BooksAPI.update(bookId, state).then(res => {
+      console.log("OK");
+    });
   };
 
   /**
