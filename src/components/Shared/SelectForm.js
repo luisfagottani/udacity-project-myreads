@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class SelectForm extends Component {
   state = {
@@ -38,4 +39,7 @@ class SelectForm extends Component {
   }
 }
 
+SelectForm.propTypes = {
+  optionSelected: PropTypes.string
+};
 export default SelectForm;

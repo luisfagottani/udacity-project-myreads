@@ -42,32 +42,22 @@ class BooksApp extends React.Component {
    * Realiza a troca de estante e comunica a API
    */
   changeBookToShelf = (state, bookId) => {
-    console.log("teste");
     const { books } = this.state;
     const item = books.findIndex(book => book.id === bookId);
-    books[item].shelf = state;
+    if (item !== -1) {
+      books[item].shelf = state;
+    } else {
+      BooksAPI.get(bookId).then(res => {
+        res.shelf = state;
+        books.push(res);
+      });
+    }
 
     this.setState(() => ({
       book: books.slice()
     }));
 
     this.updateBook(state, bookId);
-  };
-
-  /**
-   * Adiciona o livro na estante
-   */
-  addBookToSelf = (state, bookId) => {
-    const { books } = this.state;
-    BooksAPI.get(bookId).then(res => {
-      res.shelf = state;
-      books.push(res);
-    });
-
-    this.updateBook(state, bookId);
-    this.setState(() => ({
-      books: books
-    }));
   };
 
   updateBook = (state, bookId) => {
@@ -116,7 +106,7 @@ class BooksApp extends React.Component {
                       <SearchBook
                         searchBook={this.searchBook}
                         books={booksSearch}
-                        addBookToSelf={this.addBookToSelf}
+                        changeBookToShelf={this.changeBookToShelf}
                       />
                     )}
                   />

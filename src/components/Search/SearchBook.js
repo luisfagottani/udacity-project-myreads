@@ -16,7 +16,7 @@ class SearchBook extends Component {
     this.props.searchBook(event.target.value);
   };
   render() {
-    const { books, addBookToSelf } = this.props;
+    const { books, changeBookToShelf } = this.props;
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -43,7 +43,7 @@ class SearchBook extends Component {
         </div>
         <div className="search-books-results">
           {books && (
-            <BooksList changeBookToShelf={addBookToSelf} books={books} />
+            <BooksList changeBookToShelf={changeBookToShelf} books={books} />
           )}
         </div>
       </div>
